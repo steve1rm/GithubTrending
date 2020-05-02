@@ -7,7 +7,7 @@ import me.androidbox.data.repository.ProjectsDataStore
 import me.androidbox.data.repository.ProjectsRemote
 import javax.inject.Inject
 
-class ProjectsRemoteDataStore @Inject constructor(
+open class ProjectsRemoteDataStore @Inject constructor(
     private val projectsRemote: ProjectsRemote)
     : ProjectsDataStore {
 

@@ -25,8 +25,7 @@ class ProjectsDataRepository @Inject constructor(
             projectsCache.isProjectsCacheExpired().toObservable(),
             ::provideDataStore)
             .flatMap {
-                projectsDataStoreProvider.getDataStore(it.first, it.second)
-                    .getProjects()
+                projectsDataStoreProvider.getDataStore(it.first, it.second).getProjects()
             }
             .flatMap {
                projectsDataStoreProvider
@@ -35,18 +34,18 @@ class ProjectsDataRepository @Inject constructor(
                    .andThen(Observable.just(it))
             }
             .map { projectsList ->
-                projectsList.map {
-                    projectMapper.mapFromEntity(it)
-                }
+                projectsList.map { projectMapper.mapFromEntity(it) }
             }
     }
 
     override fun bookmarkProject(projectId: String): Completable {
-        return projectsDataStoreProvider.getCachedDataStore().setProjectAsBookedmarked(projectId)
+        return projectsDataStoreProvider.getCachedDataStore()
+            .setProjectAsBookedmarked(projectId)
     }
 
     override fun unBookmarkProject(projectId: String): Completable {
-        return projectsDataStoreProvider.getCachedDataStore().setProjectAsNotBookedmarked(projectId)
+        return projectsDataStoreProvider.getCachedDataStore()
+            .setProjectAsNotBookedmarked(projectId)
     }
 
     override fun getBookmarkedProjects(): Observable<List<Project>> {

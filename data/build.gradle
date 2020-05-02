@@ -6,7 +6,7 @@ dependencies {
     def dataTestDependencies = rootProject.ext.dataTestDependencies
 
     implementation dataDependencies.javaxAnnotation
-    implementation dataDependencies.kotlin
+   // implementation dataDependencies.kotlin
     implementation dataDependencies.javaxInject
     implementation dataDependencies.rxKotlin
     implementation dataDependencies.kotlinStdlib

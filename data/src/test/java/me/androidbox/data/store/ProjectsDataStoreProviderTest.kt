@@ -7,8 +7,10 @@ import org.junit.Test
 
 class ProjectsDataStoreProviderTest {
 
-    private val projectsCacheDataStore: ProjectsCacheDataStore = mock()
-    private val projectsRemoteDataStore: ProjectsRemoteDataStore = mock()
+
+    private val projectsCacheDataStore: ProjectsCacheDataStore = ProjectsCacheDataStore(mock())
+    private val projectsRemoteDataStore: ProjectsRemoteDataStore = ProjectsRemoteDataStore(mock())
+
     private lateinit var projectsDataStoreProvider: ProjectsDataStoreProvider
 
     @Before
@@ -19,9 +21,29 @@ class ProjectsDataStoreProviderTest {
     @Test
     fun `should provide cache data store when has cache that has not expired`() {
         // Act
-        val dataStore = projectsDataStoreProvider.getDataStore(isProjectCached = false, isCachedExpired = false)
+        val dataStore = projectsDataStoreProvider.getDataStore(isProjectCached = true, isCachedExpired = false)
 
         // Assert
         assertThat(dataStore).isInstanceOf(ProjectsCacheDataStore::class.java)
     }
+
+    @Test
+    fun `should provide remote data store when there is no cache`() {
+        // Act
+        val dataStore = projectsDataStoreProvider.getDataStore(isProjectCached = false, isCachedExpired = false)
+
+        // Assert
+        assertThat(dataStore).isInstanceOf(ProjectsRemoteDataStore::class.java)
+    }
+
+    @Test
+    fun `should provide remote data store when there is cache but its expired`() {
+        // Act
+        val dataStore = projectsDataStoreProvider.getDataStore(isProjectCached = true, isCachedExpired = true)
+
+        // Assert
+        assertThat(dataStore).isInstanceOf(ProjectsRemoteDataStore::class.java)
+    }
+
+
 }

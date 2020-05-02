@@ -7,7 +7,7 @@ import me.androidbox.data.repository.ProjectsCache
 import me.androidbox.data.repository.ProjectsDataStore
 import javax.inject.Inject
 
-class ProjectsCacheDataStore @Inject constructor(
+open class ProjectsCacheDataStore @Inject constructor(
     private val projectsCache: ProjectsCache)
     : ProjectsDataStore {
 
