@@ -5,7 +5,6 @@ dependencies {
     def remoteTestDependencies = rootProject.ext.remoteTestDependencies
 
     implementation remoteDependencies.javaxAnnotation
-    implementation remoteDependencies.kotlin
     implementation remoteDependencies.javaxInject
     implementation remoteDependencies.rxKotlin
     implementation remoteDependencies.gson
@@ -22,7 +21,7 @@ dependencies {
     implementation remoteTestDependencies.mockito
     implementation remoteTestDependencies.assertj
 
-    compile project(':data')
+    implementation project(':data')
 }
 
 sourceCompatibility = "7"
