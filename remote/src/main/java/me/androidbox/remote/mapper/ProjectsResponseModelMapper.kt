@@ -5,6 +5,7 @@ import me.androidbox.remote.model.ProjectModel
 
 class ProjectsResponseModelMapper : ModelMapper<ProjectModel, ProjectEntity> {
 
+    /* Remote -> Data */
     override fun mapFromModel(model: ProjectModel): ProjectEntity {
         return ProjectEntity(
             model.id,

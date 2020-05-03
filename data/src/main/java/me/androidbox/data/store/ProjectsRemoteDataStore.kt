@@ -24,7 +24,7 @@ open class ProjectsRemoteDataStore @Inject constructor(
     }
 
     override fun getBookedmarkedProjects(): Observable<List<ProjectEntity>> {
-        return projectsRemote.getBookedmarkedProjects()
+        throw UnsupportedOperationException()
     }
 
     override fun setProjectAsBookedmarked(projectId: String): Completable {

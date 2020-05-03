@@ -14,8 +14,8 @@ dependencies {
     implementation remoteDependencies.retrofit
     implementation remoteDependencies.retrofitConverter
     implementation remoteDependencies.retrofitAdapter
-    implementation dataDependencies.kotlinStdlib
-    implementation dataDependencies.kotlinReflect
+    implementation remoteDependencies.kotlinStdlib
+    implementation remoteDependencies.kotlinReflect
 
     implementation remoteTestDependencies.junit
     implementation remoteTestDependencies.kotlinJUnit

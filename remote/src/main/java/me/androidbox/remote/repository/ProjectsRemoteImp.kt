@@ -5,6 +5,7 @@ import me.androidbox.data.model.ProjectEntity
 import me.androidbox.data.repository.ProjectsRemote
 import me.androidbox.remote.mapper.ModelMapper
 import me.androidbox.remote.model.ProjectModel
+import me.androidbox.remote.model.ProjectsResponseModel
 import me.androidbox.remote.service.GithubTrendingService
 import javax.inject.Inject
 
