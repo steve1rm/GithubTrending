@@ -12,7 +12,7 @@ object ProjectDataFactory {
 
     fun makeProject(): ProjectModel =
         ProjectModel(
-            DataFactory.randomUuid(),
+            DataFactory.randomInt(),
             DataFactory.randomUuid(),
             DataFactory.randomUuid(),
             DataFactory.randomInt(),
@@ -21,7 +21,7 @@ object ProjectDataFactory {
 
     fun makeProjectEntity(): ProjectEntity =
         ProjectEntity(
-            DataFactory.randomUuid(),
+            DataFactory.randomInt(),
             DataFactory.randomUuid(),
             DataFactory.randomUuid(),
             DataFactory.randomInt(),

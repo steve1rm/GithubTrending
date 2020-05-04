@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import io.reactivex.Completable
 import io.reactivex.Observable
 import me.androidbox.cache.db.ProjectConstants.DELETE_PROJECTS
 import me.androidbox.cache.db.ProjectConstants.QUERY_BOOKMARKED_PROJECTS
@@ -20,14 +21,14 @@ abstract class CachedProjectDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     @JvmSuppressWildcards
-    abstract fun insertProjects(projects: List<CacheProject>)
+    abstract fun insertProjects(projects: List<CacheProject>): List<Long>
 
     @Query(DELETE_PROJECTS)
-    abstract fun deleteProjects()
+    abstract fun deleteProjects(): Int
 
     @Query(QUERY_BOOKMARKED_PROJECTS)
     abstract fun getBookmarkedProjects(): Observable<List<CacheProject>>
 
     @Query(QUERY_UPDATE_BOOKMARK_STATUS)
-    abstract fun setBookmarkStatus(isBookmarked: Boolean, projectId: String)
+    abstract fun setBookmarkStatus(isBookMarked: Boolean, projectId: String): Long
 }

@@ -8,7 +8,7 @@ import me.androidbox.cache.db.ProjectConstants
 @Entity(tableName = ProjectConstants.TABLE_NAME_PROJECTS)
 data class CacheProject(
     @PrimaryKey(autoGenerate = true)
-    var id: String,
+    var projectId: Int,
 
     @ColumnInfo(name = "name")
     var name: String,
@@ -28,7 +28,7 @@ data class CacheProject(
     @ColumnInfo(name = "ownerAvatar")
     var ownerAvatar: String,
 
-    @ColumnInfo(name = "isBookedMarked")
+    @ColumnInfo(name = "isBookMarked")
     var isBookedMarked: Boolean
 )
 
