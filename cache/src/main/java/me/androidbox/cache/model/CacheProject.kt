@@ -29,7 +29,7 @@ data class CacheProject(
     var ownerAvatar: String,
 
     @ColumnInfo(name = "isBookMarked")
-    var isBookedMarked: Boolean
+    var isBookMarked: Boolean
 )
 
 

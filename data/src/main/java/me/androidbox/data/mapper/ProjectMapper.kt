@@ -9,14 +9,14 @@ class ProjectMapper @Inject constructor() : EntityMapper<ProjectEntity, Project>
     /* Data -> Domain */
     override fun mapFromEntity(entity: ProjectEntity): Project {
         return Project(
-            entity.id, 
+            entity.projectId,
             entity.name,
             entity.fullName, 
             entity.starCount,
             entity.dateCreated,
             entity.ownerName,
             entity.ownerAvatar,
-            entity.isBookmarked)
+            entity.isBookMarked)
     }
 
     /* Domain -> Data */

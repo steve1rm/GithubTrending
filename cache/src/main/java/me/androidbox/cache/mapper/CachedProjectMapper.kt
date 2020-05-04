@@ -13,18 +13,18 @@ class CachedProjectMapper : CacheMapper<CacheProject, ProjectEntity> {
             cacheProject.starCount,
             cacheProject.dateCreated,
             cacheProject.ownerName,
-            cacheProject.ownerName)
+            cacheProject.ownerAvatar)
     }
 
     override fun mapToCached(projectEntity: ProjectEntity): CacheProject {
         return CacheProject(
-            projectEntity.id,
+            projectEntity.projectId,
             projectEntity.name,
             projectEntity.fullName,
             projectEntity.starCount,
             projectEntity.dateCreated,
             projectEntity.ownerName,
             projectEntity.ownerAvatar,
-            projectEntity.isBookmarked)
+            projectEntity.isBookMarked)
     }
 }
