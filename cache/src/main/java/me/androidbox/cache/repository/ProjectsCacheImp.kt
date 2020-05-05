@@ -35,9 +35,11 @@ class ProjectsCacheImp @Inject constructor(
 
     override fun getProjects(): Observable<List<ProjectEntity>> {
         return Observable.defer {
-            projectsDatabase.cachedProjectsDao().getProjects().map { cacheProjectList ->
-                cacheProjectList.map { cacheProject -> cachedProjectMapper.mapFromCached(cacheProject) }
-            }
+            projectsDatabase.cachedProjectsDao().getProjects()
+                .map { cacheProjectList ->
+                    cacheProjectList.map { cacheProject ->
+                        cachedProjectMapper.mapFromCached(cacheProject) }
+                }
         }
     }
 
@@ -52,6 +54,8 @@ class ProjectsCacheImp @Inject constructor(
         }
     }
 
+    /** Maybe have one method for called setProjectBookMarkedStatus that passes true/false for marking a book mark
+     * instead of having 2 methods */
     override fun setProjectAsBookmarked(projectId: String): Completable {
         return Completable.defer {
             projectsDatabase.cachedProjectsDao().setBookmarkStatus(isBookMarked = true, projectId = projectId)
