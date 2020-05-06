@@ -45,7 +45,7 @@ class BrowseProjectsViewModel @Inject constructor(
 
     fun unBookmarkProject(projectId: Int) {
         liveData.postValue(Resource(ResourceState.LOADING, null, null))
-        return bookmarkProject.execute(BookmarkProjectSubscriber())
+        return unBookmarkProject.execute(BookmarkProjectSubscriber())
     }
 
     inner class ProjectsSubscriber: DisposableObserver<List<Project>>() {
@@ -60,6 +60,7 @@ class BrowseProjectsViewModel @Inject constructor(
         }
     }
 
+    /** TODO benefits of using a inner class */
     inner class BookmarkProjectSubscriber : DisposableCompletableObserver() {
         override fun onComplete() {
             liveData.postValue(Resource(ResourceState.SUCCESS, liveData.value?.data, null))

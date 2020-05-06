@@ -5,6 +5,7 @@ import me.androidbox.domain.bookmarked.UnbookmarkProject.Params
 import me.androidbox.domain.executor.PostExecutionThread
 import me.androidbox.domain.interactor.CompletableUseCase
 import me.androidbox.domain.repository.ProjectsRepository
+import java.lang.IllegalArgumentException
 import javax.inject.Inject
 
 class UnbookmarkProject @Inject constructor(
@@ -12,7 +13,9 @@ class UnbookmarkProject @Inject constructor(
     postExecutionThread: PostExecutionThread)
     : CompletableUseCase<Params>(postExecutionThread) {
 
-    override fun buildUseCaseCompletable(parameters: Params): Completable {
+    override fun buildUseCaseCompletable(parameters: Params?): Completable {
+        if(parameters == null) throw IllegalArgumentException("Parameters cannot be null")
+        
         return projectsRepository.unBookmarkProject(parameters.projectId)
     }
 
