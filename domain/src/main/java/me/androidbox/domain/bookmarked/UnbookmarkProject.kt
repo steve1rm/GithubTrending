@@ -8,7 +8,7 @@ import me.androidbox.domain.repository.ProjectsRepository
 import java.lang.IllegalArgumentException
 import javax.inject.Inject
 
-class UnbookmarkProject @Inject constructor(
+open class UnbookmarkProject @Inject constructor(
     private val projectsRepository: ProjectsRepository,
     postExecutionThread: PostExecutionThread)
     : CompletableUseCase<Params>(postExecutionThread) {

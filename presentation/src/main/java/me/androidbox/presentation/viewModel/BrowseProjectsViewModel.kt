@@ -9,6 +9,7 @@ import me.androidbox.domain.bookmarked.BookmarkProject
 import me.androidbox.domain.bookmarked.UnbookmarkProject
 import me.androidbox.domain.browse.GetProjects
 import me.androidbox.domain.model.Project
+import me.androidbox.presentation.mapper.Mapper
 import me.androidbox.presentation.mapper.ProjectViewMapperImp
 import me.androidbox.presentation.model.ProjectView
 import me.androidbox.presentation.state.Resource
@@ -19,7 +20,8 @@ class BrowseProjectsViewModel @Inject constructor(
     private val getProjects: GetProjects,
     private val bookmarkProject: BookmarkProject,
     private val unBookmarkProject: UnbookmarkProject,
-    private val mapper: ProjectViewMapperImp)
+    private val mapper: Mapper<ProjectView, Project>
+)
     : ViewModel() {
 
     private val liveData: MutableLiveData<Resource<List<ProjectView>>> = MutableLiveData()
