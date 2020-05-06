@@ -1,4 +1,4 @@
-package me.androidbox.presentation.ViewModel
+package me.androidbox.presentation.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

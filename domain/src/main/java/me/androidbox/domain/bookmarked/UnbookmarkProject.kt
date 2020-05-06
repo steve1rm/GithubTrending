@@ -15,7 +15,7 @@ class UnbookmarkProject @Inject constructor(
 
     override fun buildUseCaseCompletable(parameters: Params?): Completable {
         if(parameters == null) throw IllegalArgumentException("Parameters cannot be null")
-        
+
         return projectsRepository.unBookmarkProject(parameters.projectId)
     }
 
