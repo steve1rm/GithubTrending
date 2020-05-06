@@ -1,6 +1,6 @@
 package me.androidbox.domain.model
 
-class Project(val id: Int,
+class Project(val projectId: Int,
               val name: String,
               val fullName: String,
               val starCount: Int,

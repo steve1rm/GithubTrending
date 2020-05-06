@@ -54,7 +54,7 @@ class ProjectsCacheImp @Inject constructor(
         }
     }
 
-    /** Maybe have one method for called setProjectBookMarkedStatus that passes true/false for marking a book mark
+    /** TODO Maybe have one method for called setProjectBookMarkedStatus that passes true/false for marking a book mark
      * instead of having 2 methods */
     override fun setProjectAsBookmarked(projectId: String): Completable {
         return Completable.defer {

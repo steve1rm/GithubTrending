@@ -4,9 +4,7 @@ import com.nhaarman.mockito_kotlin.*
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
-import io.reactivex.functions.Predicate
 import me.androidbox.data.mapper.ProjectMapper
-import me.androidbox.data.mockdata.DataFactory
 import me.androidbox.data.mockdata.ProjectFactory
 import me.androidbox.data.model.ProjectEntity
 import me.androidbox.data.store.ProjectsCacheDataStore
@@ -81,7 +79,7 @@ class ProjectsDataRepositoryTest {
     }
 
     private fun checkMatchesEntity(project: Project, projectEntity: ProjectEntity): Boolean {
-        return project.id.contentEquals(projectEntity.id) &&
+        return project.projectId.contentEquals(projectEntity.id) &&
                 project.name.contentEquals(projectEntity.name) &&
                 project.isBookmarked == projectEntity.isBookmarked &&
                 project.fullName.contentEquals(projectEntity.fullName) &&

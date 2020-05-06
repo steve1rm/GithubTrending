@@ -22,7 +22,7 @@ class ProjectMapper @Inject constructor() : EntityMapper<ProjectEntity, Project>
     /* Domain -> Data */
     override fun mapToEntity(domain: Project): ProjectEntity {
         return ProjectEntity(
-            domain.id,
+            domain.projectId,
             domain.name,
             domain.fullName,
             domain.starCount,
