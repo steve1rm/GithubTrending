@@ -7,7 +7,8 @@ import me.androidbox.domain.model.Project
 import me.androidbox.domain.repository.ProjectsRepository
 import javax.inject.Inject
 
-class GetBookedMarkedProjects @Inject constructor(
+/** TODO close this by creating a interface */
+open class GetBookedMarkedProjects @Inject constructor(
     private val projectsRepository: ProjectsRepository,
     postExecutionThread: PostExecutionThread)
     : ObservableUseCase<List<Project>, Nothing?>(postExecutionThread) {

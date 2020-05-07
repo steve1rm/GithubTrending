@@ -71,7 +71,6 @@ class BrowseProjectsViewModelTest {
         assertThat(ResourceState.SUCCESS).isEqualTo(browseProjectsViewModel.getProjects().value?.status)
     }
 
-
     @Test
     fun `fetch project returns data`() {
         // Arrange
