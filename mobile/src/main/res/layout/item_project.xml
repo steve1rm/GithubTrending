@@ -30,7 +30,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/image_owner_avatar"
         app:layout_constraintTop_toTopOf="@+id/image_owner_avatar"
-        tools:text="Steve. M" />
+        tools:text="Steve" />
 
     <TextView
         android:id="@+id/text_project_name"

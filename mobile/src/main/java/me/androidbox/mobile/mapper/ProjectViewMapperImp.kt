@@ -13,6 +13,8 @@ class ProjectViewMapperImp @Inject constructor()
             presentation.name,
             presentation.fullName,
             presentation.starCount,
+            presentation.dateCreated,
+            presentation.ownerName,
             presentation.ownerAvatar,
             presentation.isBookmarked)
     }
