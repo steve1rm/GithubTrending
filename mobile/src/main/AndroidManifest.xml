@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="me.androidbox.mobile">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".GithubTrendingApplication"
@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".bookmarked.BookmarkedActivity"></activity>
         <activity android:name=".browse.BrowseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
