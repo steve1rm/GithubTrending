@@ -1,6 +1,6 @@
 package me.androidbox.presentation.mapper
 
-interface Mapper<out V, in D> {
+interface Mapper<V, D> {
 
     fun mapToView(model: D): V
 }

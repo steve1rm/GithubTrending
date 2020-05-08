@@ -6,8 +6,9 @@ import me.androidbox.domain.executor.PostExecutionThread
 import me.androidbox.domain.interactor.CompletableUseCase
 import me.androidbox.domain.repository.ProjectsRepository
 import java.lang.IllegalArgumentException
+import javax.inject.Inject
 
-open class BookmarkProject(
+open class BookmarkProject @Inject constructor(
     private val projectsRepository: ProjectsRepository,
     postExecutionThread: PostExecutionThread)
     : CompletableUseCase<Params>(postExecutionThread) {

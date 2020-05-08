@@ -20,7 +20,7 @@ class BrowseProjectsViewModel @Inject constructor(
     private val getProjects: GetProjects,
     private val bookmarkProject: BookmarkProject,
     private val unBookmarkProject: UnbookmarkProject,
-    private val mapper: Mapper<ProjectView, Project>
+    private val mapper: ProjectViewMapperImp
 )
     : ViewModel() {
 

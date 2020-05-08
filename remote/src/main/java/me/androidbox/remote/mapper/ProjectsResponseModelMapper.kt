@@ -2,8 +2,9 @@ package me.androidbox.remote.mapper
 
 import me.androidbox.data.model.ProjectEntity
 import me.androidbox.remote.model.ProjectModel
+import javax.inject.Inject
 
-class ProjectsResponseModelMapper : ModelMapper<ProjectModel, ProjectEntity> {
+class ProjectsResponseModelMapper @Inject constructor() : ModelMapper<ProjectModel, ProjectEntity> {
 
     /* Remote -> Data */
     override fun mapFromModel(model: ProjectModel): ProjectEntity {

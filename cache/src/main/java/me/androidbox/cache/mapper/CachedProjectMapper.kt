@@ -2,8 +2,9 @@ package me.androidbox.cache.mapper
 
 import me.androidbox.cache.model.CacheProject
 import me.androidbox.data.model.ProjectEntity
+import javax.inject.Inject
 
-class CachedProjectMapper : CacheMapper<CacheProject, ProjectEntity> {
+class CachedProjectMapper @Inject constructor() : CacheMapper<CacheProject, ProjectEntity> {
 
     override fun mapFromCached(cacheProject: CacheProject): ProjectEntity {
         return ProjectEntity(

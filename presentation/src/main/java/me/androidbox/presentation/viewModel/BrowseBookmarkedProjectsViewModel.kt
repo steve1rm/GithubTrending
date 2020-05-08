@@ -7,6 +7,7 @@ import io.reactivex.observers.DisposableObserver
 import me.androidbox.domain.bookmarked.GetBookedMarkedProjects
 import me.androidbox.domain.model.Project
 import me.androidbox.presentation.mapper.Mapper
+import me.androidbox.presentation.mapper.ProjectViewMapperImp
 import me.androidbox.presentation.model.ProjectView
 import me.androidbox.presentation.state.Resource
 import me.androidbox.presentation.state.ResourceState
@@ -14,7 +15,7 @@ import javax.inject.Inject
 
 class BrowseBookmarkedProjectsViewModel @Inject constructor(
     private val getBookedMarkedProjects: GetBookedMarkedProjects,
-    private val projectViewMapper: Mapper<ProjectView, Project>) /** TODO investigate why the order mappers, compile error when switches round */
+    private val projectViewMapper: ProjectViewMapperImp) /** TODO investigate why the order mappers, compile error when switches round */
     : ViewModel() {
 
     private val liveData: MutableLiveData<Resource<List<ProjectView>>> = MutableLiveData()
