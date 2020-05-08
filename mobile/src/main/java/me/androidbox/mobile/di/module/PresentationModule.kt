@@ -1,6 +1,7 @@
 package me.androidbox.mobile.di.module
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module
@@ -17,7 +18,7 @@ abstract class PresentationModule {
     abstract fun bindBrowseProjectsViewModel(viewModel: BrowseProjectsViewModel): ViewModel
 
     @Binds
-    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModel
+    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 }
 
 @MustBeDocumented
