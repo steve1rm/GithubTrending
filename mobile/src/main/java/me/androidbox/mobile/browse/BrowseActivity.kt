@@ -2,12 +2,18 @@ package me.androidbox.mobile.browse
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_browse.*
 import me.androidbox.mobile.R
+import me.androidbox.mobile.bookmarked.BookmarkedActivity
 import me.androidbox.mobile.di.module.ViewModelFactory
 import me.androidbox.mobile.mapper.ProjectViewMapperImp
 import me.androidbox.mobile.model.Project
@@ -32,11 +38,37 @@ class BrowseActivity : AppCompatActivity() {
         AndroidInjection.inject(this@BrowseActivity)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_browse)
+
+        browseViewModel = ViewModelProviders.of(this, viewModelFactory)
+            .get(BrowseProjectsViewModel::class.java)
+
+        setupBrowseRecycler()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        browseViewModel.getProjects().observe(this,
+            Observer<Resource<List<ProjectView>>> {
+                it?.let {
+                    handleDataState(it)
+                }
+            })
+        browseViewModel.fetchProjects()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        //menuInflater.inflate
+        menuInflater.inflate(R.menu.main, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_bookmarked -> {
+                startActivity(BookmarkedActivity.getStartIntent(this))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun setupBrowseRecycler() {
